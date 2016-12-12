@@ -1,0 +1,20 @@
+<% include header %>
+<img src="<%= user.image.url %>" alt="user avatar">
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Score
+        </th>
+        <th>
+            Date
+        </th>
+    </tr><% scores.forEach(function(score){ %>
+    <%- include score %>
+    <% }); %>
+</table>
+
+
+

@@ -1,0 +1,9 @@
+<% include header %>
+<img src="<%= user.image.url %>" alt="user avatar">
+
+<form action="/game" method="post">
+    <input type="number" min="0" value="10" name="score">
+    <button type="submit">Submit</button>
+</form>
+
+<a href="/highScores">Scoreboard</a>
