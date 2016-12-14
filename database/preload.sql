@@ -7,6 +7,7 @@ CREATE DATABASE scoreboard;
 CREATE TABLE scores(
     userid VARCHAR,
     score INTEGER,
+    difficulty VARCHAR,
     created TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 

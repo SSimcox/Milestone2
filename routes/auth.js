@@ -33,7 +33,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 route.use(passport.initialize());
-route.use(passport.session());
+route.use(passport.session({pauseStream : true}));
 
 route.get('/google',
     passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login','email'] }));
@@ -41,23 +41,21 @@ route.get('/google',
 route.get('/google/callback',
     passport.authenticate('google', { failureRedirect: '/' }),
     function(req, res) {
-        //console.log(req.user);
         req.logIn(req.user,function(err){
             if(err) {
                 console.log("error with login: "+err);
                 return res.redirect('/');
             }
             //console.log("No error with user login");
-            return res.render('game',{ user: req.user._json});
+            return res.redirect('/game');
         });
 
     });
 
-function doAuth(req,res,next){
-    if(req.user){
-
-    }
-}
+route.post('/',function(req,res){
+    req.logout();
+    return res.redirect('/');
+})
 
 
 

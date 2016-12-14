@@ -1,9 +1,16 @@
-<tr>
+<% var classString;if(score.difficulty == "Hard"){classString = "bg-hard";} %>
+<% if(score.difficulty == "Medium"){classString = "bg-medium";} %>
+<% if(score.difficulty == "Easy"){classString = "bg-easy";} %>
+
+<tr class="<%= classString%>">
     <td>
         <%= score.userid %>
     </td>
     <td>
         <%= score.score %>
+    </td>
+    <td>
+        <%= score.difficulty %>
     </td>
     <td>
         <%= score.created %>

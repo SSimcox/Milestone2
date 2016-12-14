@@ -26,8 +26,12 @@ app.use('/auth',auth);
 
 function deserialize(req,res,next){
     if(!req.user){
-        if(req.session && req.session.passport){
+        if(req.session && req.session.passport && req.session.passport.user){
             req.user = req.session.passport.user;
+        }
+        else{
+            if(req.path != '/' && req.path != '/auth/google' && req.path != '/auth/google/callback')
+                return res.redirect('/');
         }
     }
     next();

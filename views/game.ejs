@@ -1,9 +1,39 @@
 <% include header %>
-<img src="<%= user.image.url %>" alt="user avatar">
 
-<form action="/game" method="post">
-    <input type="number" min="0" value="10" name="score">
-    <button type="submit">Submit</button>
+<img src="<%= user.image.url %>" alt="user avatar">
+<form action="/auth" method="POST"><button>Logout</button></form>
+<form id="submit-score" action="/game" method="post">
+    <input type="hidden" name="score">
+    <input type="hidden" name="continue">
+    <input type="hidden" name="difficulty">
 </form>
 
 <a href="/highScores">Scoreboard</a>
+<h3>How to Play:</h3>
+<p>Left click a cell to look underneath it. Right click once to mark the cell as a mine. Right click twice to mark it as maybe. Right click a third time to clear it.</p><br/>
+<p>The game is over when all safe cells are uncovered OR all mines are marked with flags.</p>
+<div id="game-board">
+    <div id="toolbar">
+        <select id="dif">
+            <option value="0.1">Easy</option>
+            <option value="0.25" selected="selected">Medium</option>
+            <option value="0.4">Hard</option>
+        </select>
+
+        <p>Board will be (5-20)<input id="size" type="number" min="5" max="20" value="10"> Rows by <span id="col-num"></span> Columns.</p><br/>
+        <div id="game-status">
+            <p>Bombs Left: <span id="bombs-left">100</span></p>
+            <button id="start">Start Game</button>
+            <button id="cheat" hidden="true">Cheat!</button>
+            <p>   Time: <span id="time-gone">0</span></p>
+        </div>
+    </div>
+    <div id="board">
+        <table id="cell-table" cell-spacing="0">
+
+        </table>
+    </div>
+</div>
+<div id="play-again" title="Congratulations, You Won!" style="display:none;">Would you like to play again?</div>
+<div id="lose" title="You Lost" style="display:none">Looks like you'll have to try again.</div>
+<script src="/public/js/minesweeper.js" type="text/javascript"></script>

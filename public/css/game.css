@@ -1,0 +1,107 @@
+p, pre{
+    display: inline;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+td, td button{
+   padding: 0;
+}
+
+td button{
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: #444444;
+    border-color: #444444;
+    font-size: 24px;
+}
+
+td{
+    text-align: center;
+}
+
+#start{
+    width: fit-content;
+
+}
+
+#game-board{
+    width:50%;
+    margin: 15px auto;
+    border: 2px solid blue;
+    border-radius: 5px;
+}
+
+#toolbar{
+    width: fit-content;
+    margin: 5px auto;
+}
+
+#game-status{
+    width: fit-content;
+    margin: 2px auto;
+}
+
+td button:disabled{
+    background-color: #eeeeee;
+    border-color: #eeeeee;
+}
+
+button{
+    text-align: center;
+
+}
+
+.black, .black:disabled{
+    color:black;
+}
+
+.blue, .blue:disabled{
+    color: blue;
+}
+
+.red, .red:disabled{
+    color: red;
+}
+
+.brown, .brown:disabled{
+    color: brown;
+}
+
+.purple, .purple:disabled{
+    color: purple;
+}
+
+.images{
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.bombFlagged{
+    background-color: green;
+}
+.bombNotFlagged{
+    background-color: yellow;
+}
+.spaceFlagged{
+    background-color: red;
+}
+
+.bg-hard{
+    background-color: #ff8888;
+}
+
+.bg-medium{
+    background-color: #88ff88;
+}
+
+.bg-easy{
+    background-color: #8888ff;
+}

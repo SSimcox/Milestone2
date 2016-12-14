@@ -1,4 +1,6 @@
 <% include header %>
+<form action="/auth" method="POST"><button>Logout</button></form>
+<form action="/game" method="GET"><button>Back to Minesweeper</button></form>
 <img src="<%= user.image.url %>" alt="user avatar">
 <table>
     <tr>
@@ -7,6 +9,9 @@
         </th>
         <th>
             Score
+        </th>
+        <th>
+            Difficulty
         </th>
         <th>
             Date
