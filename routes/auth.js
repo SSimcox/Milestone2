@@ -32,8 +32,8 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
-route.use(passport.initialize());
-route.use(passport.session({pauseStream : true}));
+//route.use(passport.initialize());
+//route.use(passport.session({pauseStream : true}));
 
 route.get('/google',
     passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login','email'] }));
